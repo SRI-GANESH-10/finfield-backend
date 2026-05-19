@@ -17,3 +17,20 @@ export const signUp = async (req: Request, res: Response) => {
         });
     }
 }
+
+export const login = async ( req : Request , res: Response) => {
+    try {
+        const userData = await authService.login(req.body)
+        res.json({
+            message:'Login Successful',
+            user:userData.user,
+            token:userData.token
+        })
+    } catch (error) {
+        const message = error instanceof Error ? error.message : "Something went wrong"
+        res.status(400).json({
+            success: false,
+            message: message
+        });
+    }
+}
