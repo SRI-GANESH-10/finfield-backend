@@ -6,7 +6,7 @@ import { errorMiddleware } from './middleware/error.middleware';
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'https://finfield-frontend.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
